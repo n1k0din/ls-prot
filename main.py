@@ -65,9 +65,7 @@ def strings_to_points(strlist) -> t.List[Point]:
 
 def approx_points_list(points):
     n = len(points)
-    print("n = ", n)
     res = []
-    print(approx(points[0], points[1]))
 
     for i in range(1, n):
         res.extend(approx(points[i - 1], points[i]))
