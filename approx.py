@@ -68,7 +68,6 @@ def approx_points_list(points):
     res = []
 
     for i in range(1, n):
-        print(points[i - 1], points[i])
         approxed = approx(points[i - 1], points[i])
         if approxed:
             res.extend(approxed)
@@ -88,9 +87,8 @@ def approx(p1: Point, p2: Point, max_segment=120) -> t.List[Point]:
     delta = p2.t - p1.t
     delta_minutes = td_minutes(delta)
 
-    if delta_minutes >= max_segment or delta_minutes == 0:
-        return None
-
+    if delta_minutes > max_segment or delta_minutes == 0:
+        return []
 
     k = (p2.f - p1.f) / delta_minutes
 
